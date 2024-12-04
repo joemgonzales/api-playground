@@ -34,8 +34,9 @@ const TeamDropdown = ({ onTeamSelect }) => {
 
   return (
     <div>
-      <label htmlFor="dropdown">Choose a team: </label>
+      <label htmlFor="teamDropdown">Choose a team: </label>
         <Dropdown
+          className='teamDropdown'
           options={teams.sort().map((team) => team.name)}
           value={selectedTeam}
           onChange={handleSelectionChange}
