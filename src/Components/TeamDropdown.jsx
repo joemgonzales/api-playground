@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { teamUrls } from '../Constants/TeamUrls';
+import Dropdown from './Basic/Dropdown';
 
-function DisplayTeams() {
+const TeamDropdown = () => {
+  const [ selectedOption, setSelectedOption ] = useState('');
   const [ teams, setTeams ] = useState([]);
 
   useEffect(() => {
@@ -16,18 +18,16 @@ function DisplayTeams() {
     })
   }, [])
 
-  const items = teams.map((teamName, index) => {
-    return (
-      <li key={index} >
-          { teamName }
-      </li>
-    );
-  })
-
-
   return (
-      <ul> { items.sort() } </ul>
+    <div>
+      <label htmlFor="dropdown">Choose a team: </label>
+        <Dropdown
+          options={teams.sort()}
+          value={selectedOption}
+          onChange={(e) => setSelectedOption(e.target.value)}
+        />
+    </div>
   )
-}
+};
 
-export default DisplayTeams;
+export default TeamDropdown;

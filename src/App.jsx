@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PlayerHeadshot from "./Components/PlayerHeadshot";
-import DisplayTeams from "./Components/DisplayTeams";
+import TeamDropdown from "./Components/TeamDropdown";
 
 function App(){
   const [imageUrl, setImageUrl] = useState('');
+  const [selectedOption, setSelectedOption] = useState('');
+  const options = ['Option 1', 'Option 2', 'Option 3']; 
 
   useEffect(() => {
     // Replace with your actual API call
@@ -16,11 +18,11 @@ function App(){
       .catch(error => console.error('Error fetching image URL:', error));
   }, []);
 
+
   return (
     <article>
       <h2>Test</h2>
-
-        <DisplayTeams />
+        <TeamDropdown />
     </article>
   )
 }
