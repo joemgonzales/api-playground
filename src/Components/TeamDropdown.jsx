@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { teamUrls } from '../Constants/TeamUrls';
 import Dropdown from './Basic/Dropdown';
 
-const TeamDropdown = () => {
-  const [ selectedOption, setSelectedOption ] = useState('');
+const TeamDropdown = ({ onTeamSelect }) => {
+  const [ selectedTeam, setSelectedTeam ] = useState('');
   const [ teams, setTeams ] = useState([]);
 
   useEffect(() => {
@@ -12,19 +12,33 @@ const TeamDropdown = () => {
         .then((data) => {
           setTeams((prevTeams) => [
             ...prevTeams,
-            data.displayName
+            {
+              id: data.id,
+              name: data.displayName,
+            }
           ])
         });
     })
   }, [])
 
+  const handleSelectionChange = (e) => {
+    const selectedTeamName = e.target.value;
+    setSelectedTeam(selectedTeamName);
+
+    // Find the full team object and pass it to the parent
+    const selectedTeamObj = teams.find((team) => team.name === selectedTeamName);
+    if (selectedTeamObj) {
+      onTeamSelect(selectedTeamObj); // Call the parent callback with the selected team
+    }
+  };
+
   return (
     <div>
       <label htmlFor="dropdown">Choose a team: </label>
         <Dropdown
-          options={teams.sort()}
-          value={selectedOption}
-          onChange={(e) => setSelectedOption(e.target.value)}
+          options={teams.sort().map((team) => team.name)}
+          value={selectedTeam}
+          onChange={handleSelectionChange}
         />
     </div>
   )
