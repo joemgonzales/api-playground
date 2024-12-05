@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from "react";
-import TeamDropdown from "./Components/TeamDropdown";
+import PlayerInfoCard from "./Cards/PlayerInfoCard";
+import './App.css';
 
 function App(){
-  const [ selectedTeam, setSelectedTeam ] = useState(null);
-
-  const handleTeamSelect = (teamObj) => {
-    setSelectedTeam(teamObj);
-  }
-
   return (
-    <article>
-      <h2>Test</h2>
-        <TeamDropdown onTeamSelect={handleTeamSelect}/>
-        {selectedTeam && 
-          <h4>
-            Team: {selectedTeam.name}, ID: {selectedTeam.id}
-          </h4>
-        }
-    </article>
+    <div className="main-container">
+      <h2>API Playground</h2>
+      <PlayerInfoCard />
+    </div>
   )
 }
 

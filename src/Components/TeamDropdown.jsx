@@ -30,16 +30,16 @@ const TeamDropdown = ({ onTeamSelect }) => {
     if (selectedTeamObj) {
       onTeamSelect(selectedTeamObj); // Call the parent callback with the selected team
     }
-  };
+  }
 
   return (
     <div>
-      <label htmlFor="teamDropdown">Choose a team: </label>
         <Dropdown
-          className='teamDropdown'
+          id='teamDropdown'
+          headerText='Team: '
+          onChange={handleSelectionChange}
           options={teams.sort().map((team) => team.name)}
           value={selectedTeam}
-          onChange={handleSelectionChange}
         />
     </div>
   )
