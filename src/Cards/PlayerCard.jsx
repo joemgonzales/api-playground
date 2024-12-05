@@ -15,7 +15,6 @@ function PlayerCard( { selectedTeam, selectedPlayer }) {
           teamNickname={selectedTeam.nickname}
           teamLogoUrl={selectedTeam.logoUrl}
         />
-        <h1>TEST</h1>
       </DisplayCard>
     </div>
   );

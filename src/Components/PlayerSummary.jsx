@@ -3,6 +3,7 @@ import PlayerDropdown from './PlayerDropdown';
 import PlayerCard from '../Cards/PlayerCard';
 import TeamDropdown from './TeamDropdown';
 import './Basic/DefaultDisplayStyle.css'
+import './PlayerSummary.css';
 
 function PlayerInfo() {
   const [ selectedTeam, setSelectedTeam ] = useState(null);
@@ -19,7 +20,7 @@ function PlayerInfo() {
 
   return (
     <div className="container">
-      <h1 className="title">Select a player to learn more</h1>
+      <h1 className="player-summary-title">Select a player to learn more</h1>
       <div style={ {display: 'flex', justifyContent: 'space-between'}}>
         <TeamDropdown onTeamSelect={handleTeamSelect}/>
         <PlayerDropdown

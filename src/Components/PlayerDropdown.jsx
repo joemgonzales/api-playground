@@ -61,7 +61,7 @@ const PlayerDropdown = ({ disabled, onPlayerSelect, selectedTeam }) => {
           id='playerDropdown'
           headerText='Player: '
           onChange={handleSelectionChange}
-          options={players.sort().map((player) => player.fullName)}
+          options={players.sort((a, b) => a.fullName.localeCompare(b.fullName)).map((player) => player.fullName)}
           value={selectedPlayer}
         />
     </div>

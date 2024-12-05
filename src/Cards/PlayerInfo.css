@@ -7,3 +7,9 @@
   position: relative; /* This ensures the PlayerInfo doesn't obstruct the display card style */
   z-index: 1; /* Ensure PlayerInfo content appears above the display card style */
 }
+
+.name-position-number{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
