@@ -14,7 +14,10 @@ const TeamDropdown = ({ onTeamSelect }) => {
             ...prevTeams,
             {
               id: data.id,
+              color: `#${data.color}`,
+              logoUrl: data.logos[0]?.href,
               name: data.displayName,
+              nickname: data.nickname,
             }
           ])
         });

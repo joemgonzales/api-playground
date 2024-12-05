@@ -4,7 +4,7 @@ import Dropdown from './Basic/Dropdown';
 // Using 2024 Season, this can be changed if needed
 const URL_TEAM_ATHLETES = 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2024/teams/';
 
-const PlayerDropdown = ({ onPlayerSelect, selectedTeam }) => {
+const PlayerDropdown = ({ disabled, onPlayerSelect, selectedTeam }) => {
   const [ playerUrls, setPlayerUrls ] = useState([]);
   const [ players, setPlayers ] = useState([]);
   const [ selectedPlayer, setSelectedPlayer ] = useState('');
@@ -14,10 +14,12 @@ const PlayerDropdown = ({ onPlayerSelect, selectedTeam }) => {
     setPlayerUrls([]);
     setPlayers([]);
 
+    if (selectedTeam && selectedTeam.id) {
     fetch(`${URL_TEAM_ATHLETES}${selectedTeam.id}/athletes?limit=200`).then((response) => response.json())
       .then((data) => {
         setPlayerUrls(data.items);
       });
+    }
   }, [selectedTeam])
 
   useEffect(() => {
@@ -55,6 +57,7 @@ const PlayerDropdown = ({ onPlayerSelect, selectedTeam }) => {
   return (
     <div>
         <Dropdown
+          disabled={disabled}
           id='playerDropdown'
           headerText='Player: '
           onChange={handleSelectionChange}
