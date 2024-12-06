@@ -27,16 +27,18 @@ const PlayerDropdown = ({ disabled, onPlayerSelect, selectedTeam }) => {
       playerUrls.forEach((url) => {
         fetch(`${url.$ref}`).then((response) => response.json())
         .then((data) => {
-          setPlayers((prevPlayers) => [
-            ...prevPlayers,
-            {
-              fullName: data.fullName,
-              headshotImageUrl: data.headshot?.href,
-              id: data.id,
-              jerseyNumber: data.jersey,
-              position: data.position?.name,
-            }
-          ])
+          if (!(data.status.type === 'practice-squad')) {
+            setPlayers((prevPlayers) => [
+              ...prevPlayers,
+              {
+                fullName: data.fullName,
+                headshotImageUrl: data.headshot?.href,
+                id: data.id,
+                jerseyNumber: data.jersey,
+                position: data.position?.name,
+              }
+            ])
+          }
         })
         .catch((error) => console.error(`Error fetching data for ${url.$ref}:`, error));
       });
