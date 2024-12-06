@@ -6,5 +6,10 @@ npm install
 npm start
 ```
 
-Ideas so far in using this:
+Available functions:
+- Player selector
+![Example](src/Images/example.png)
+
+Ideas for developing further:
+- Statistics display
 - Prop bet analyzer
