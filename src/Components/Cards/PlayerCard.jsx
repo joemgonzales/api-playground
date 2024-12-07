@@ -1,5 +1,5 @@
 import React from "react";
-import DisplayCard from "../Components/Basic/DisplayCard";
+import DisplayCard from "../Basic/DisplayCard";
 import PlayerInfo from "./PlayerInfo";
 import './PlayerCard.css';
 

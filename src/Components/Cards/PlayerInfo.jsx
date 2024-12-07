@@ -1,6 +1,6 @@
 import React from "react";
-import PlayerHeadshot from "../Components/PlayerHeadshot";
-import TitleAndSubtitle from "../Components/Basic/TwoLineTextDisplay";
+import PlayerHeadshot from "../PlayerHeadshot";
+import TitleAndSubtitle from "../Basic/TwoLineTextDisplay";
 import './PlayerInfo.css';
 
 function PlayerInfo( { headshotImageUrl, fullName, jerseyNumber, position, teamNickname, teamLogoUrl }) {

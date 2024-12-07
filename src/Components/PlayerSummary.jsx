@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PlayerDropdown from './PlayerDropdown';
-import PlayerCard from '../Cards/PlayerCard';
+import PlayerCard from './Cards/PlayerCard';
 import TeamDropdown from './TeamDropdown';
 import './Basic/DefaultDisplayStyle.css'
 import './PlayerSummary.css';
@@ -19,7 +19,7 @@ function PlayerInfo() {
   };
 
   return (
-    <div className="container">
+    <div className="default-container">
       <h1 className="player-summary-title">Select a player to learn more</h1>
       <div style={ {display: 'flex', justifyContent: 'space-between'}}>
         <TeamDropdown onTeamSelect={handleTeamSelect}/>
