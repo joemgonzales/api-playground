@@ -5,7 +5,7 @@ import PlayerStats from "./PlayerStats";
 import './PlayerCard.css';
 
 function PlayerCard( { selectedTeam, selectedPlayer }) {
-  const [isFlipped, setIsFlipped] = React.useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => setIsFlipped((prev) => !prev);
 

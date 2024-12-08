@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto; /* Center the card on larger screens */
   box-sizing: border-box;
   flex-wrap: wrap; /* Allow wrapping for responsiveness */
