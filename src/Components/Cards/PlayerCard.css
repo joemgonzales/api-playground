@@ -1,20 +1,18 @@
 .player-card-container {
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1000px; /* Enables 3D effect */
-  width: 100%; /* Adjust as necessary for layout */
-  height: 100%; /* Adjust as necessary for layout */
   position: relative;
 }
 
 .player-card {
+  cursor: pointer;
+  perspective: 1000px; /* Enables 3D effect */
   width: 345px;
   height: 400px;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.6s;
+  transition: transform 0.8s;
   transform: rotateY(0);
 }
 

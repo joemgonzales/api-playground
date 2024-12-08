@@ -8,7 +8,7 @@ npm start
 
 Available functions:
 - Player selector
-![Example](src/Images/example.png)
+![Example](src/Images/player_summary_example.gif)
 
 Ideas for developing further:
 - Statistics display
