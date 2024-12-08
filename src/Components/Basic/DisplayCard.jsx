@@ -1,11 +1,11 @@
 import React from 'react';
 import './DisplayCard.css';
 
-const DisplayCard = ({ color, children }) => {
+const DisplayCard = ({ alternateColor, color, children }) => {
   return (
     <div 
       className="display-card" 
-      style={{ background: `linear-gradient(to bottom right, ${color}, white)` }}>
+      style={{ background: `linear-gradient(to bottom right, ${color}, ${alternateColor})` }}>
       {children}
     </div>
   );

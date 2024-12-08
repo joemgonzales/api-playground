@@ -15,6 +15,7 @@ const TeamDropdown = ({ onTeamSelect }) => {
             {
               id: data.id,
               color: `#${data.color}`,
+              alternateColor: `#${data.alternateColor}`,
               logoUrl: data.logos[0]?.href,
               name: data.displayName,
               nickname: data.nickname,

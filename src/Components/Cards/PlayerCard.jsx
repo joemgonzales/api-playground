@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import DisplayCard from "../Basic/DisplayCard";
 import PlayerInfo from "./PlayerInfo";
+import PlayerStats from "./PlayerStats";
 import './PlayerCard.css';
 
 function PlayerCard( { selectedTeam, selectedPlayer }) {
+  const [isFlipped, setIsFlipped] = React.useState(false);
+
+  const handleFlip = () => setIsFlipped((prev) => !prev);
+
   return (
-    <div>      
-      <DisplayCard color={selectedTeam.color}>
-      <PlayerInfo
-          headshotImageUrl={selectedPlayer.headshotImageUrl}
-          fullName={selectedPlayer.fullName}
-          jerseyNumber={selectedPlayer.jerseyNumber}
-          position={selectedPlayer.position}
-          teamNickname={selectedTeam.nickname}
-          teamLogoUrl={selectedTeam.logoUrl}
-        />
-      </DisplayCard>
+    <div className="player-card-container" onClick={handleFlip}>  
+      <div className={`player-card ${isFlipped ? "flipped" : ""}`}>
+        <div className="player-card-front">
+          <DisplayCard alternateColor={selectedTeam.alternateColor} color={selectedTeam.color}>
+          <PlayerInfo
+              player={selectedPlayer}
+              team={selectedTeam}
+            />
+          </DisplayCard>
+        </div>
+        <div className="player-card-back">
+          <DisplayCard alternateColor={selectedTeam.alternateColor} color={selectedTeam.color}>
+            <PlayerStats
+              player={selectedPlayer}
+              team={selectedTeam}
+            />
+          </DisplayCard>
+        </div>
+      </div>
     </div>
   );
 };

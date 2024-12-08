@@ -1,0 +1,44 @@
+.player-stats {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative; /* This ensures the PlayerInfo doesn't obstruct the display card style */
+  z-index: 1; /* Ensure PlayerInfo content appears above the display card style */
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.player-name{
+  font-size: x-large;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+}
+
+.player-stats-box{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.player-stats-display-medium-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: medium;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+}
+
+.player-stats-display-small-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: small;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+  padding: 2px;
+}

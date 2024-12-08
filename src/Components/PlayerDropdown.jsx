@@ -31,11 +31,16 @@ const PlayerDropdown = ({ disabled, onPlayerSelect, selectedTeam }) => {
             setPlayers((prevPlayers) => [
               ...prevPlayers,
               {
+                age: data.age,
+                birthday: formatDate(data.dateOfBirth),
+                draftInfo: data.draft?.displayText,
                 fullName: data.fullName,
                 headshotImageUrl: data.headshot?.href,
+                height: data.displayHeight,
                 id: data.id,
                 jerseyNumber: data.jersey,
                 position: data.position?.name,
+                weight: data.displayWeight,
               }
             ])
           }
@@ -44,6 +49,15 @@ const PlayerDropdown = ({ disabled, onPlayerSelect, selectedTeam }) => {
       });
     }
   }, [playerUrls])
+
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    return date.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  };
 
   const handleSelectionChange = (e) => {
     const selectedPlayerName = e.target.value;
